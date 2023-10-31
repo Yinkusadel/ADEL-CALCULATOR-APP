@@ -19,7 +19,7 @@
 - Clone the project
 
 ```bash
-git clone git@github.com:Yinkusadel/ADEL-CALCULATOR-APP.git
+git clone git@github.com:Yinkusadel/adel-js-calculator-app.git
 ```
 
 - Install Dependencies
