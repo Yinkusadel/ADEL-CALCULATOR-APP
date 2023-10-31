@@ -1,4 +1,4 @@
-# Calculator App
+# Js Calculator App
 
 > This project uses JavaScript , HTML, and CSS skills to create a functional calculator application
 
