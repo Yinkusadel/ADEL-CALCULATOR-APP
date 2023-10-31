@@ -104,6 +104,7 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Frontend Mentor: [@Frontend Mentor](https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29)
+- Odin: [@TOP-Calculator-App](https://www.theodinproject.com/lessons/foundations-calculator)
 
 ## 📝 License
 
