@@ -1,28 +1,25 @@
-# Project Name
+# Calculator App
 
-> One paragraph statement about the project.
+> This project uses JavaScript , HTML, and CSS skills to create a functional calculator application
 
 ![screenshot](./app_screenshot.png)
 
-Additional description about the project and its features.
-
 ## Built With
 
-- Major languages,
-- frameworks,
-- technologies used
+- HTML
+- CSS
+- JavaScript
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](adels-calculator-app.netlify.app)
 
 ### Development (Running locally)
 
 - Clone the project
 
 ```bash
-git clone https://github.com/user/js-template.git
-
+git clone git@github.com:Yinkusadel/ADEL-CALCULATOR-APP.git
 ```
 
 - Install Dependencies
@@ -89,9 +86,10 @@ yarn axe
 
 ## 👤 Author
 
-- Github: [@author](https://github.com/author)
-- Twitter: [@author](https://twitter.com/author)
-- Linkedin: [@author](https://www.linkedin.com/in/author/)
+- Github: [@yinkusadel](https://github.com/yinkusadel)
+- Twitter: [@HashiraAdel](https://twitter.com/HashiraAdel)
+- Linkedin: [@adeleyeolayinka](https://www.linkedin.com/in/adeleye-olayinka/)
+- FreeCodeCamp: [@yinkusadel](https://www.freecodecamp.org/Yinkusadel)
 
 ## 🤝 Contributing
 
@@ -105,9 +103,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration, resources/assets used
-- etc
+- Frontend Mentor: [@Frontend Mentor](https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29)
 
 ## 📝 License
 
