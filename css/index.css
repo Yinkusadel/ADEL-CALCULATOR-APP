@@ -200,7 +200,7 @@ input:checked:hover {
   color: var(--mobile-button-keys-color);
 }
 
-.num-btn:hover,
+.btn,
 .operator-btn:hover {
   background-color: var(--mobile-button-keys-background-hover);
 }
@@ -253,7 +253,7 @@ input:checked:hover {
   background-color: var(--equal-to-key-background-hover);
 }
 
-.num-btn:active,
+.btn:active,
 .operator-btn:active {
   transform: translateY(1.1rem);
 }
