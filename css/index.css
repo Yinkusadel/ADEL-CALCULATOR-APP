@@ -1,9 +1,231 @@
 @import url('./reset.css');
 @import url('./utility.css');
 
-body {
-  font-size: max(20vw, 400px);
-  width: min(20vw, 400px);
-  margin: 20px;
-  padding: 0;
+.theme-one {
+  --mobile-view-background: hsl(222deg 26% 31%);
+  --mobile-radio-input-background: hsl(223deg 31% 20%);
+  --mobile-radio-input-checked: hsl(6deg 63% 50%);
+  --mobile-text-colors: hsl(0deg 0% 100%);
+  --user-input-background: hsl(224deg 36% 15%);
+  --mobile-button-background: hsl(224deg 36% 15%);
+  --mobile-button-keys-background: hsl(30deg 25% 89%);
+  --mobile-button-keys-color: hsl(221deg 14% 31%);
+  --mobile-button-keys-box-shadow: hsl(28deg 16% 65%);
+  --delete-key-background: hsl(225deg 21% 49%);
+  --delete-key-box-shadow: hsl(224deg 28% 35%);
+  --reset-key-background: hsl(225deg 21% 49%);
+  --reset-key-box-shadow: hsl(224deg 28% 35%);
+  --equal-to-key-background: hsl(6deg 63% 50%);
+  --equal-to-key-box-shadow: hsl(6deg 70% 34%);
+  --white: hsl(0deg 0% 98%);
+}
+
+.theme-two {
+  --mobile-view-background: hsl(0deg 0% 90%);
+  --mobile-radio-input-background: hsl(0deg 5% 81%);
+  --mobile-radio-input-checked: hsl(25deg 98% 40%);
+  --mobile-text-colors: hsl(60deg 10% 19%);
+  --user-input-background: hsl(0deg 0% 93%);
+  --mobile-button-background: hsl(0deg 5% 81%);
+  --mobile-button-keys-background: hsl(45deg 7% 89%);
+  --mobile-button-keys-box-shadow: hsl(34deg 11% 61%);
+  --delete-key-background: hsl(185deg 42% 37%);
+  --delete-key-box-shadow: hsl(185deg 58% 25%);
+  --reset-key-background: hsl(185deg 42% 37%);
+  --reset-key-box-shadow: hsl(185deg 58% 25%);
+  --equal-to-key-background: hsl(25deg 98% 40%);
+  --equal-to-key-box-shadow: hsl(25deg 99% 27%);
+  --white: hsl(0deg 0% 98%);
+}
+
+.theme-three {
+  --mobile-view-background: hsl(268deg 75% 9%);
+  --mobile-radio-input-background: hsl(268deg 71% 12%);
+  --mobile-radio-input-checked: hsl(176deg 100% 44%);
+  --mobile-text-colors: hsl(54deg 100% 51%);
+  --user-input-background: hsl(268deg 71% 12%);
+  --mobile-button-background: hsl(268deg 71% 12%);
+  --mobile-button-keys-background: hsl(268deg 47% 21%);
+  --mobile-button-keys-box-shadow: hsl(290deg 70% 36%);
+  --delete-key-background: hsl(281deg 89% 26%);
+  --delete-key-box-shadow: hsl(285deg 91% 52%);
+  --reset-key-background: hsl(281deg 89% 26%);
+  --reset-key-box-shadow: hsl(285deg 91% 52%);
+  --equal-to-key-background: hsl(176deg 100% 44%);
+  --equal-to-key-box-shadow: hsl(177deg 92% 70%);
+  --white: hsl(0deg 0% 98%);
+}
+
+.pages-body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  background-color: var(--mobile-view-background);
+  display: flex;
+  justify-content: center;
+  color: var(--mobile-text-colors);
+}
+
+.calculator-container {
+  width: 70%;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 15%;
+}
+
+.header-texts {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  height: 80%;
+  align-items: center;
+}
+
+.label-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  height: 100%;
+}
+
+.labels {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+  height: 40%;
+}
+
+.theme-inputs {
+  background-color: var(--mobile-radio-input-background);
+  padding: 3px 15px;
+  border-radius: 1.3rem;
+  width: 85%;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.theme-inputs input {
+  appearance: none;
+  width: 30%;
+  height: 80%;
+  border-radius: 50%;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+input:checked {
+  background-color: var(--mobile-radio-input-checked);
+}
+
+.user-input-display {
+  background-color: var(--user-input-background);
+  width: 100%;
+  height: 10%;
+  margin-top: 5px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-input {
+  width: 97%;
+  font-size: 5vw;
+  text-align: right;
+}
+
+.user-butns {
+  height: 30%;
+}
+
+.calculator-btns {
+  background-color: var(--mobile-button-background);
+  padding: 20px;
+  border-radius: 1rem;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 5%;
+  height: 40%;
+}
+
+.num-btn,
+.operator-btn {
+  height: 5%;
+  width: 20%;
+  font-size: 4vw;
+  font-weight: 700;
+  line-height: 3.7rem;
+  border-radius: 0.3rem;
+  box-shadow: inset 0 -4px 0 var(--mobile-button-keys-box-shadow);
+  border: none;
+  background-color: var(--mobile-button-keys-background);
+  color: var(--mobile-button-keys-color);
+}
+
+.delete-btn {
+  height: 5%;
+  width: 20%;
+  background-color: var(--delete-key-background);
+  color: var(--white);
+  font-size: 2vw;
+  font-weight: 700;
+  line-height: 3.7rem;
+  border-radius: 0.3rem;
+  border: none;
+  box-shadow: inset 0 -4px 0 var(--delete-key-box-shadow);
+}
+
+.reset-btn {
+  height: 12vh;
+  width: 100%;
+  font-size: 4vw;
+  font-weight: 700;
+  line-height: 2.6rem;
+  background-color: var(--reset-key-background);
+  color: var(--white);
+  border-radius: 0.3rem;
+  border: none;
+  box-shadow: inset 0 -4px 0 var(--reset-key-box-shadow);
+}
+
+.equal-to-btn {
+  height: 12vh;
+  width: 100%;
+  font-size: 4vw;
+  font-weight: 700;
+  line-height: 2.6rem;
+  background-color: var(--equal-to-key-background);
+  color: var(--white);
+  border-radius: 0.3rem;
+  border: none;
+  box-shadow: inset 0 -4px 0 var(--equal-to-key-box-shadow);
+}
+
+.num-btn:active,
+.operator-btn:active {
+  transform: translateY(1.1rem);
+}
+
+.delete-btn:active,
+.reset-btn:active,
+.equal-to-btn:active {
+  transform: translateY(1.1rem);
 }
