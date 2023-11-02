@@ -200,7 +200,7 @@ input:checked:hover {
   color: var(--mobile-button-keys-color);
 }
 
-.btn,
+.btn:hover,
 .operator-btn:hover {
   background-color: var(--mobile-button-keys-background-hover);
 }
