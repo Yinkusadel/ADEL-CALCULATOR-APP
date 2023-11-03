@@ -175,12 +175,12 @@ input:checked:hover {
 .btn {
   width: 20%;
   font-size: 30px;
-  line-height: 3.7rem;
   border-radius: 0.3rem;
   box-shadow: inset 0 -4px 0 var(--mobile-button-keys-box-shadow);
   border: none;
   background-color: var(--mobile-button-keys-background);
   color: var(--mobile-button-keys-color);
+  height: 50px;
 }
 
 .btn:hover {
@@ -191,9 +191,9 @@ input:checked:hover {
   width: 20%;
   background-color: var(--delete-key-background);
   color: var(--white);
-  font-size: 4.5vw;
+  font-size: 4vw;
   font-weight: 700;
-  line-height: 3.7rem;
+  height: 50px;
   border-radius: 0.3rem;
   border: none;
   box-shadow: inset 0 -4px 0 var(--delete-key-box-shadow);
@@ -207,8 +207,8 @@ input:checked:hover {
   width: 48%;
   font-size: 4vw;
   font-weight: 700;
-  line-height: 3.7rem;
   background-color: var(--reset-key-background);
+  height: 50px;
   color: var(--white);
   border-radius: 0.3rem;
   border: none;
@@ -223,8 +223,8 @@ input:checked:hover {
   width: 48%;
   font-size: 4vw;
   font-weight: 700;
-  line-height: 3.7rem;
   background-color: var(--equal-to-key-background);
+  height: 50px;
   color: var(--white);
   border-radius: 0.3rem;
   border: none;
