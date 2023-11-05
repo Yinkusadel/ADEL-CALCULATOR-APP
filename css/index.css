@@ -105,27 +105,25 @@
 
 .label-input {
   flex-direction: column;
-  width: 100px;
+  width: 60px;
   height: 50px;
 }
 
 .labels {
-  padding: 0.5rem;
-  width: 60%;
-  height: 45%;
+  width: 50px;
+  height: 25px;
 }
 
 .theme-inputs {
   background-color: var(--mobile-radio-input-background);
-  padding: 3px 15px;
   border-radius: 1.3rem;
-  width: 90%;
-  height: 70px;
+  width: 60px;
+  height: 25px;
 }
 
 .theme-inputs input {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   transition: 0.2s;
   cursor: pointer;
