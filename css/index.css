@@ -103,7 +103,7 @@
 
 .label-input {
   flex-direction: column;
-  width: 60px;
+  width: 20%;
   height: 50px;
   margin-left: 10px;
 }
@@ -249,5 +249,22 @@ input:checked:hover {
 
   .calculator-btns {
     width: 500px;
+  }
+
+  .btn {
+    font-size: 40px;
+  }
+
+  .header-texts {
+    font-size: 10px;
+  }
+
+  .label-input {
+    margin-left: 0;
+    height: 25px;
+  }
+
+  .calc-text {
+    font-size: 25px;
   }
 }
