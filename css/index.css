@@ -73,7 +73,6 @@
 }
 
 .pages-body {
-  width: 100%;
   min-height: 100vh;
   background-color: var(--mobile-view-background);
   color: var(--mobile-text-colors);
@@ -86,7 +85,6 @@
 
 .calculator-mainbody {
   min-height: 90vh;
-  width: 100%;
 }
 
 .header {
@@ -238,4 +236,18 @@ input:checked:hover {
 .reset-btn:active,
 .equal-to-btn:active {
   transform: translateY(0.3rem);
+}
+
+@media screen and (width > 600px) {
+  .calculator-container {
+    width: 500px;
+  }
+
+  .calculator-mainbody {
+    width: 500px;
+  }
+
+  .calculator-btns {
+    width: 500px;
+  }
 }
