@@ -239,6 +239,32 @@ input:checked:hover {
 }
 
 @media screen and (width > 600px) {
+  .header-texts {
+    font-size: 10px;
+    align-items: end;
+    width: 85%;
+  }
+
+  .label-input {
+    margin-left: 0;
+    justify-content: end;
+    align-items: end;
+    width: 15%;
+  }
+
+  .calc-text {
+    font-size: 25px;
+  }
+
+  .labels {
+    height: 10px;
+    font-size: 10px;
+  }
+
+  .theme-inputs {
+    height: 15px;
+  }
+
   .calculator-container {
     width: 500px;
   }
@@ -253,18 +279,5 @@ input:checked:hover {
 
   .btn {
     font-size: 40px;
-  }
-
-  .header-texts {
-    font-size: 10px;
-  }
-
-  .label-input {
-    margin-left: 0;
-    height: 25px;
-  }
-
-  .calc-text {
-    font-size: 25px;
   }
 }
