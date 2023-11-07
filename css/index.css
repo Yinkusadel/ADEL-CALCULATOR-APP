@@ -76,6 +76,7 @@
   min-height: 100vh;
   background-color: var(--mobile-view-background);
   color: var(--mobile-text-colors);
+  transition: 0.3s ease;
 }
 
 .calculator-container {
@@ -259,10 +260,17 @@ input:checked:hover {
   .labels {
     height: 10px;
     font-size: 10px;
+    width: 65px;
   }
 
   .theme-inputs {
-    height: 15px;
+    height: 18px;
+    width: 70px;
+  }
+
+  .theme-inputs input {
+    height: 18px;
+    width: 18px;
   }
 
   .calculator-container {
