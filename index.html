@@ -17,32 +17,37 @@
                 <p>THEME</p>
               </div>
               <div class="label-input d-flex align-center">
-                <div class="labels d-flex justify-space-between align-center">
-                  <label for="theme-choice-one">1</label>
-                  <label for="theme-choice-two">2</label>
-                  <label for="theme-choice-three">3</label>
-                </div>
-                <div class="theme-inputs d-flex justify-space-between align-center">
-                  <input
-                    class="theme-one appearance"
-                    id="theme-choice-one"
-                    name="theme"
-                    type="radio"
-                    checked=""
-                  />
-                  <input
-                    class="theme-two appearance"
-                    id="theme-choice-two"
-                    name="theme"
-                    type="radio"
-                  />
-                  <input
-                    class="theme-three appearance"
-                    id="theme-choice-three"
-                    name="theme"
-                    type="radio"
-                  />
-                </div>
+                <form class="theme-form" name="themeBox">
+                  <div class="labels d-flex justify-space-between align-center">
+                    <label for="theme-choice-one">1</label>
+                    <label for="theme-choice-two">2</label>
+                    <label for="theme-choice-three">3</label>
+                  </div>
+                  <div class="theme-inputs d-flex justify-space-between align-center">
+                    <input
+                      class="theme-one appearance"
+                      id="theme-choice-one"
+                      value="theme-one"
+                      name="theme"
+                      type="radio"
+                      checked=""
+                    />
+                    <input
+                      class="theme-two appearance"
+                      id="theme-choice-two"
+                      value="theme-two"
+                      name="theme"
+                      type="radio"
+                    />
+                    <input
+                      class="theme-three appearance"
+                      id="theme-choice-three"
+                      value="theme-three"
+                      name="theme"
+                      type="radio"
+                    />
+                  </div>
+                </form>
               </div>
             </div>
 
@@ -87,5 +92,5 @@
       </div>
     </main>
   </body>
-  <script src="script.js"></script>
+  <script src="theme.js"></script>
 </html>
