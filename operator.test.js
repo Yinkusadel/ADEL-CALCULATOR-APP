@@ -12,6 +12,42 @@ test('multiply 1 * 2 to equal 2', () => {
   expect(operate('*', 1, 2)).toBe(2);
 });
 
-test('subtract 4 / 2 to equal 2', () => {
+test('divide 4 / 2 to equal 2', () => {
   expect(operate('/', 4, 2)).toBe(2);
+});
+
+test('divide 4 / 0 to equal invalid operation', () => {
+  expect(operate('/', 4, 0)).toBe(`Division by zero is not allowed`);
+});
+
+test('subtract 300000 - 10000 to equal 290000', () => {
+  expect(operate('-', 300000, 10000)).toBe(290000);
+});
+
+test('multiply 300000 * 10000 to equal 3000000000', () => {
+  expect(operate('*', 300000, 10000)).toBe(3000000000);
+});
+
+test('adds 300000 + 10000 to equal 310000', () => {
+  expect(operate('+', 300000, 10000)).toBe(310000);
+});
+
+test('subtract 5.5 - 3.3 to equal 2.2', () => {
+  expect(operate('-', 5.5, 3.3)).toBe(2.2);
+});
+
+test('multiply 5.5 * 3.3 to equal 18.15', () => {
+  expect(operate('*', 5.5, 3.3)).toBe(18.15);
+});
+
+test('adds 5.5 + 3.3 to equal 8.8', () => {
+  expect(operate('+', 5.5, 3.3)).toBe(8.8);
+});
+
+test('divide 5.5 / 2.2 to equal 2.5', () => {
+  expect(operate('/', 5.5, 2.2)).toBe(2.5);
+});
+
+test('add notANumber + 2 to equal notANumber', () => {
+  expect(operate('+', `notANumber`, 2)).toBe(`notANumber2`);
 });
