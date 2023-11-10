@@ -1,4 +1,4 @@
-const operate = (operator, num1, num2, precision) => {
+const operate = (operator, num1, num2,) => {
   let result;
 
   if (typeof num1 !== 'number' || typeof num2 !== 'number') {
@@ -24,7 +24,7 @@ const operate = (operator, num1, num2, precision) => {
     default:
       return 'Invalid operator';
   }
-  const parsedResult = parseFloat(result.toPrecision(precision));
+  const parsedResult = parseFloat(result.toPrecision(12));
 
   return parsedResult;
 };
