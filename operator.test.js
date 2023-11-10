@@ -48,6 +48,18 @@ test('divide 5.5 / 2.2 to equal 2.5', () => {
   expect(operate('/', 5.5, 2.2)).toBe(2.5);
 });
 
-test('add notANumber + 2 to equal notANumber', () => {
-  expect(operate('+', `notANumber`, 2)).toBe(`notANumber2`);
+test('add 0.2 + 0.1 to equal 0.3', () => {
+  expect(operate('+', 0.2, 0.1, 12)).toBe(0.3);
+});
+
+test('subtract 0.3 - 0.2 to equal 0.1', () => {
+  expect(operate('-', 0.3, 0.2, 12)).toBe(0.1);
+});
+
+test('multiply 0.5 * 0.3 to equal 0.15', () => {
+  expect(operate('*', 0.5, 0.3)).toBe(0.15);
+});
+
+test('divide 0.4 / 0.2 to equal 2', () => {
+  expect(operate('/', 0.4, 0.2)).toBe(2);
 });

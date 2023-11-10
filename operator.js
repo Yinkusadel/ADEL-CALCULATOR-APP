@@ -1,20 +1,32 @@
-const operate = (operator, num1, num2) => {
+const operate = (operator, num1, num2, precision) => {
+  let result;
+
+  if (typeof num1 !== 'number' || typeof num2 !== 'number') {
+    return new Error('Both operands must be numbers');
+  }
+
   switch (operator) {
     case '+':
-      return num1 + num2;
+      result = num1 + num2;
+      break;
     case '-':
-      return num1 - num2;
+      result = num1 - num2;
+      break;
     case '*':
-      return num1 * num2;
+      result = num1 * num2;
+      break;
     case '/':
-      if (num2 !== 0) {
-        return num1 / num2;
+      if (num2 === 0) {
+        return 'Division by zero is not allowed';
       }
-      return 'Division by zero is not allowed';
-
+      result = num1 / num2;
+      break;
     default:
-      return 'pick operator';
+      return 'Invalid operator';
   }
+  const parsedResult = parseFloat(result.toPrecision(precision));
+
+  return parsedResult;
 };
 
 operate();
