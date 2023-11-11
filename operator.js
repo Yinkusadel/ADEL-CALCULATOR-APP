@@ -32,6 +32,4 @@ const operate = (operator, num1, num2) => {
   return parsedResult;
 };
 
-operate();
-
 module.exports = operate;
