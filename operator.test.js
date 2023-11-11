@@ -1,6 +1,6 @@
 const operate = require('./operator');
 
-describe('basic arithmetic', () => {
+describe('with basic arithmetic', () => {
   test('add 0.2 + 0.1 to equal 0.3', () => {
     expect(operate('+', 0.2, 0.1)).toBe(0.3);
   });
@@ -22,7 +22,7 @@ describe('basic arithmetic', () => {
   });
 });
 
-describe('Zero as operand', () => {
+describe('with Zero as operand', () => {
   test('add 0 + 5 to equal 5', () => {
     expect(operate('+', 0, 5)).toBe(5);
   });
@@ -40,7 +40,7 @@ describe('Zero as operand', () => {
   });
 });
 
-describe('Division by zero', () => {
+describe('when handling Division by zero', () => {
   test('divide 6 / 0 to return Error', () => {
     expect(operate('/', 6, 0)).toBe(`Division by zero is not allowed`);
   });
@@ -50,7 +50,7 @@ describe('Division by zero', () => {
   });
 });
 
-describe('Decimal operands', () => {
+describe('with decimal operands', () => {
   test('adds 0.1 + 0.2 to equal 0.3', () => {
     expect(operate('+', 0.1, 0.2)).toBe(0.3);
   });
@@ -68,7 +68,7 @@ describe('Decimal operands', () => {
   });
 });
 
-describe('Large numbers', () => {
+describe('with Large numbers', () => {
   test('adds 1000000 + 500000 to equal 1500000', () => {
     expect(operate('+', 1000000, 500000)).toBe(1500000);
   });
@@ -86,7 +86,7 @@ describe('Large numbers', () => {
   });
 });
 
-describe('Mixing Positive and Negative Numbers', () => {
+describe('when Mixing Positive and Negative Numbers', () => {
   test(' add (-2) + 4 to equal 2', () => {
     expect(operate('+', -2, 4)).toBe(2);
   });
@@ -104,7 +104,7 @@ describe('Mixing Positive and Negative Numbers', () => {
   });
 });
 
-describe('Extreme Values', () => {
+describe('with Extreme Values', () => {
   test(' add 1e308 + 1e308 to return potential overflow', () => {
     expect(operate('+', 1e308, 1e308)).toBe('infinity');
   });
@@ -122,7 +122,7 @@ describe('Extreme Values', () => {
   });
 });
 
-describe('Mixing Data Types', () => {
+describe('when Mixing Data Types', () => {
   test(' add "2" + 3 to return Error', () => {
     expect(operate('+', '2', 3)).toBe('Both operands must be numbers');
   });
@@ -132,7 +132,7 @@ describe('Mixing Data Types', () => {
   });
 });
 
-describe('Unsupported Operators', () => {
+describe('with Unsupported Operators', () => {
   test('unknown operator 5 % 2 to exceed Error', () => {
     expect(operate('%', 5, 2)).toBe('Invalid operator');
   });
