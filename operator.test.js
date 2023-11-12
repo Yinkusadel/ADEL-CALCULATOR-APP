@@ -42,11 +42,11 @@ describe('with Zero as operand', () => {
 
 describe('when handling Division by zero', () => {
   test('divide 6 / 0 to return Error', () => {
-    expect(operate('/', 6, 0)).toBe(`Division by zero is not allowed`);
+    expect(operate('/', 6, 0)).toBe(`MATH ERR`);
   });
 
   test('divide 0 / 0 to return Error', () => {
-    expect(operate('/', 0, 0)).toBe(`Division by zero is not allowed`);
+    expect(operate('/', 0, 0)).toBe(`MATH ERR`);
   });
 });
 
@@ -124,16 +124,22 @@ describe('with Extreme Values', () => {
 
 describe('when Mixing Data Types', () => {
   test(' add "2" + 3 to return Error', () => {
-    expect(operate('+', '2', 3)).toBe('Both operands must be numbers');
+    expect(operate('+', '2', 3)).toBe('12 chars max');
   });
 
   test('subtract 4 - "1" to return Error', () => {
-    expect(operate('-', 4, '1')).toBe('Both operands must be numbers');
+    expect(operate('-', 4, '1')).toBe('12 chars max');
   });
 });
 
 describe('with Unsupported Operators', () => {
   test('unknown operator 5 % 2 to exceed Error', () => {
     expect(operate('%', 5, 2)).toBe('Invalid operator');
+  });
+});
+
+describe('when the operand is in range but the result is out of range', () => {
+  test('multiply 1e10 * 1e10 to return potential overflow', () => {
+    expect(operate('*', 1e10, 1e10)).toBe('out of range');
   });
 });
