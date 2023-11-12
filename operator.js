@@ -27,7 +27,7 @@ const operate = (operator, num1, num2) => {
     default:
       return 'Invalid operator';
   }
-  if (result > 1e14 || result < -1e14) {
+  if (Math.abs(result) > 1e14) {
     return 'out of range';
   }
 
