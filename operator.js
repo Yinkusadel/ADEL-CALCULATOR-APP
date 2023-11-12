@@ -25,7 +25,7 @@ const operate = (operator, num1, num2) => {
       return 'Invalid operator';
   }
   if (num1 >= 1e14 || num1 <= -1e14 || num2 >= 1e14 || num2 <= -1e14 || result > 1e14) {
-    return 'infinity';
+    return 'out of range';
   }
   const parsedResult = parseFloat(result.toPrecision(12));
 

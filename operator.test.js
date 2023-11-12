@@ -106,19 +106,19 @@ describe('when Mixing Positive and Negative Numbers', () => {
 
 describe('with Extreme Values', () => {
   test(' add 1e308 + 1e308 to return potential overflow', () => {
-    expect(operate('+', 1e308, 1e308)).toBe('infinity');
+    expect(operate('+', 1e308, 1e308)).toBe('out of range');
   });
 
   test('subtract -1e308 - 1e308 to return potential overflow', () => {
-    expect(operate('-', -1e308, 1e308)).toBe('infinity');
+    expect(operate('-', -1e308, 1e308)).toBe('out of range');
   });
 
   test('multiply 1e308 * 2 to return potential overflow', () => {
-    expect(operate('*', 1e308, 2)).toBe('infinity');
+    expect(operate('*', 1e308, 2)).toBe('out of range');
   });
 
   test('divide 1 / 1e-308 to exceed precision limit', () => {
-    expect(operate('/', 1, 1e-308)).toBe('infinity');
+    expect(operate('/', 1, 1e-308)).toBe('out of range');
   });
 });
 
