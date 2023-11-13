@@ -1,6 +1,6 @@
 const operate = (operator, num1, num2) => {
   if (typeof num1 !== 'number' || typeof num2 !== 'number') {
-    return '12 CHARS MAX';
+    return 'NOT A NUMBER';
   }
   if (Math.abs(num1) >= 1e14 || Math.abs(num2) >= 1e14) {
     return 'OUT OF RANGE';

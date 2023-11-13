@@ -124,11 +124,11 @@ describe('with Extreme Values', () => {
 
 describe('when Mixing Data Types', () => {
   test(' add "2" + 3 to return Error', () => {
-    expect(operate('+', '2', 3)).toBe('12 CHARS MAX');
+    expect(operate('+', '2', 3)).toBe('NOT A NUMBER');
   });
 
   test('subtract 4 - "1" to return Error', () => {
-    expect(operate('-', 4, '1')).toBe('12 CHARS MAX');
+    expect(operate('-', 4, '1')).toBe('NOT A NUMBER');
   });
 });
 
