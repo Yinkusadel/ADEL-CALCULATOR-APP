@@ -106,40 +106,40 @@ describe('when Mixing Positive and Negative Numbers', () => {
 
 describe('with Extreme Values', () => {
   test(' add 1e308 + 1e308 to return potential overflow', () => {
-    expect(operate('+', 1e308, 1e308)).toBe('out of range');
+    expect(operate('+', 1e308, 1e308)).toBe('OUT OF RANGE');
   });
 
   test('subtract -1e308 - 1e308 to return potential overflow', () => {
-    expect(operate('-', -1e308, 1e308)).toBe('out of range');
+    expect(operate('-', -1e308, 1e308)).toBe('OUT OF RANGE');
   });
 
   test('multiply 1e308 * 2 to return potential overflow', () => {
-    expect(operate('*', 1e308, 2)).toBe('out of range');
+    expect(operate('*', 1e308, 2)).toBe('OUT OF RANGE');
   });
 
   test('divide 1 / 1e-308 to exceed precision limit', () => {
-    expect(operate('/', 1, 1e-308)).toBe('out of range');
+    expect(operate('/', 1, 1e-308)).toBe('OUT OF RANGE');
   });
 });
 
 describe('when Mixing Data Types', () => {
   test(' add "2" + 3 to return Error', () => {
-    expect(operate('+', '2', 3)).toBe('12 chars max');
+    expect(operate('+', '2', 3)).toBe('12 CHARS MAX');
   });
 
   test('subtract 4 - "1" to return Error', () => {
-    expect(operate('-', 4, '1')).toBe('12 chars max');
+    expect(operate('-', 4, '1')).toBe('12 CHARS MAX');
   });
 });
 
 describe('with Unsupported Operators', () => {
   test('unknown operator 5 % 2 to exceed Error', () => {
-    expect(operate('%', 5, 2)).toBe('Invalid operator');
+    expect(operate('%', 5, 2)).toBe('INVALID OPERATOR');
   });
 });
 
 describe('when the operand is in range but the result is out of range', () => {
   test('multiply 1e10 * 1e10 to return potential overflow', () => {
-    expect(operate('*', 1e10, 1e10)).toBe('out of range');
+    expect(operate('*', 1e10, 1e10)).toBe('OUT OF RANGE');
   });
 });

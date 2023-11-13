@@ -1,9 +1,9 @@
 const operate = (operator, num1, num2) => {
   if (typeof num1 !== 'number' || typeof num2 !== 'number') {
-    return '12 chars max';
+    return '12 CHARS MAX';
   }
   if (Math.abs(num1) >= 1e14 || Math.abs(num2) >= 1e14) {
-    return 'out of range';
+    return 'OUT OF RANGE';
   }
 
   let result;
@@ -25,10 +25,10 @@ const operate = (operator, num1, num2) => {
       result = num1 / num2;
       break;
     default:
-      return 'Invalid operator';
+      return 'INVALID OPERATOR';
   }
-  if (Math.abs(result) > 1e14 || Math.abs(result) < -1e14) {
-    return 'out of range';
+  if (Math.abs(result) > 1e14) {
+    return 'OUT OF RANGE';
   }
 
   return parseFloat(result.toPrecision(12));
