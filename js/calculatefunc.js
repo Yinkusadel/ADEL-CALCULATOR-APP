@@ -1,20 +1,10 @@
-const operate = (operator, num1, num2) => {
-  switch (operator) {
-    case '+':
-      return num1 + num2;
-    case '-':
-      return num1 - num2;
-    case '*':
-      return num1 * num2;
-    case '/':
-      return num2 !== 0 ? num1 / num2 : 'Error';
-    default:
-      return 'Error';
-  }
-};
+const operate = require('./operate');
 
 const calculate = (input, calcObject) => {
   const { num1, num2, displayValue, operator } = calcObject;
+  if (input === 'reset') {
+    return { num1: null, num2: null, displayValue: null, operator: null };
+  }
 
   if (/[0-9]/.test(input)) {
     if (num1 === null) {
