@@ -1,7 +1,7 @@
 const operate = require('./operate');
 
 const calculate = (input, calcObject) => {
-  const { num1, num2, displayValue, operator } = calcObject;
+  let { num1, num2, displayValue, operator } = calcObject;
   if (input === 'reset') {
     return { num1: null, num2: null, displayValue: null, operator: null };
   }
@@ -28,12 +28,23 @@ const calculate = (input, calcObject) => {
   }
 
   if (['+', '-', '*', '/'].includes(input)) {
-    return {
-      num1: num1 !== null ? num1 : '0',
-      num2,
-      displayValue: num1 !== null ? num1 : '0',
-      operator: input,
-    };
+    if (num1 !== null && num2 !== null && operator !== null) {
+      num1 = operate(operator, parseFloat(num1), parseFloat(num2));
+      num2 = null;
+    } else if (num1 !== null && num2 == null && operator !== null) {
+      num1 = parseFloat(num1).toString();
+      num2 = null;
+    } else if (num1 == null && num2 !== null && operator !== null) {
+      num1 = parseFloat(num2).toString();
+      num2 = null;
+    } else {
+      num1 = displayValue !== null ? parseFloat(displayValue) : null;
+    }
+
+    operator = input;
+    displayValue = num1;
+
+    return { num1, num2, displayValue, operator };
   }
 
   if (input === '=') {
