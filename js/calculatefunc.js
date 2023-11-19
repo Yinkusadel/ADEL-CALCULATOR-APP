@@ -60,7 +60,7 @@ const calculate = (input, calcObject) => {
     return calcObject;
   }
 
-  return displayValue;
+  return calcObject;
 };
 
 module.exports = calculate;

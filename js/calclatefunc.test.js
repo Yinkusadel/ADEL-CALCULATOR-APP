@@ -90,3 +90,41 @@ describe("when 'input' is a number", () => {
     expect(calculation).toHaveProperty('operator', data.operator);
   });
 });
+
+describe("when 'input' is a defined first", () => {
+  it("returns an object with 'num1' if  property input value 'data.num2' is not defined ", () => {
+    const input = '3';
+    const calculation = calculate(input, data);
+    expect(calculation).toHaveProperty('num1', '3');
+    expect(calculation).toHaveProperty('num2', data.num2);
+    expect(calculation).toHaveProperty('displayValue', '3');
+    expect(calculation).toHaveProperty('operator', data.operator);
+  });
+
+  it("returns an object with 'operator' if  property input value 'data.num1' is not defined ", () => {
+    const input = '+';
+    const calculation = calculate(input, data);
+    expect(calculation).toHaveProperty('num1', null);
+    expect(calculation).toHaveProperty('num2', null);
+    expect(calculation).toHaveProperty('displayValue', null);
+    expect(calculation).toHaveProperty('operator', input);
+  });
+
+  it("returns an object with 'input'property value if 'data.num1','data.num2','data.operator' is not defined ", () => {
+    const input = '=';
+    const calculation = calculate(input, data);
+    expect(calculation).toHaveProperty('num1', null);
+    expect(calculation).toHaveProperty('num2', null);
+    expect(calculation).toHaveProperty('displayValue', null);
+    expect(calculation).toHaveProperty('operator', null);
+  });
+
+  it("returns an object with 'input'property value if empty ", () => {
+    const input = null;
+    const calculation = calculate(input, data);
+    expect(calculation).toHaveProperty('num1', null);
+    expect(calculation).toHaveProperty('num2', null);
+    expect(calculation).toHaveProperty('displayValue', null);
+    expect(calculation).toHaveProperty('operator', null);
+  });
+});
