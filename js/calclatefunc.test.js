@@ -60,11 +60,33 @@ describe("when 'input' is a valid binary operator", () => {
   });
 
   it("returns an object with 'num1' property set to 'data.num2' if 'data.num1' is not defined", () => {
-    data = { num1: null, num2: '40', displayValue: null, operator: '+' };
+    data = { num1: null, num2: '40', displayValue: '40', operator: '+' };
     const calculation = calculate(input, data);
     expect(calculation).toHaveProperty('num1', data.num2);
     expect(calculation).toHaveProperty('num2', null);
     expect(calculation).toHaveProperty('displayValue', data.num2);
     expect(calculation).toHaveProperty('operator', input);
+  });
+});
+
+describe("when 'input' is a number", () => {
+  const input = '5';
+
+  it("returns an object with 'num2' property concatenate with the input value if 'data.num2' is defined", () => {
+    data = { num1: '10', num2: '2', displayValue: '2', operator: '+' };
+    const calculation = calculate(input, data);
+    expect(calculation).toHaveProperty('num1', data.num1);
+    expect(calculation).toHaveProperty('num2', '25');
+    expect(calculation).toHaveProperty('displayValue', '25');
+    expect(calculation).toHaveProperty('operator', data.operator);
+  });
+
+  it("returns an object with 'num2' property set to the input value if 'data.num2' is not defined", () => {
+    data = { num1: '10', num2: null, displayValue: '10', operator: '+' };
+    const calculation = calculate(input, data);
+    expect(calculation).toHaveProperty('num1', data.num1);
+    expect(calculation).toHaveProperty('num2', '5');
+    expect(calculation).toHaveProperty('displayValue', '5');
+    expect(calculation).toHaveProperty('operator', data.operator);
   });
 });
