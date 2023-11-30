@@ -23,9 +23,9 @@ describe("when 'input' is '='", () => {
   it("returns an object with 'num1' property set to the binary operation of 'data.num2' and 'data.num1' if all property of data is defined", () => {
     data = { num1: '10', num2: '20', displayValue: '20', operator: '+' };
     const calculation = calculate(input, data);
-    expect(calculation).toHaveProperty('num1', 30);
+    expect(calculation).toHaveProperty('num1', '30');
     expect(calculation).toHaveProperty('num2', null);
-    expect(calculation).toHaveProperty('displayValue', 30);
+    expect(calculation).toHaveProperty('displayValue', '30');
     expect(calculation).toHaveProperty('operator', null);
   });
 
@@ -44,9 +44,9 @@ describe("when 'input' is a valid binary operator", () => {
   it("returns an object with 'num1' property set to the binary operation of 'data.num2' and 'data.num1' if all property of data is defined", () => {
     data = { num1: '10', num2: '20', displayValue: '20', operator: '+' };
     const calculation = calculate(input, data);
-    expect(calculation).toHaveProperty('num1', 30);
+    expect(calculation).toHaveProperty('num1', '30');
     expect(calculation).toHaveProperty('num2', null);
-    expect(calculation).toHaveProperty('displayValue', 30);
+    expect(calculation).toHaveProperty('displayValue', '30');
     expect(calculation).toHaveProperty('operator', input);
   });
 
@@ -127,4 +127,108 @@ describe("when 'input' is a defined first", () => {
     expect(calculation).toHaveProperty('displayValue', null);
     expect(calculation).toHaveProperty('operator', null);
   });
+});
+
+describe('when series of input is calculated', () => {
+  // 2 + 3 + 4 / - 5 * 2 = 8
+  const testCases = [
+    {
+      buttonName: '2',
+      expectedOperandOne: '2',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '2',
+      expectedOperator: null,
+    },
+    {
+      buttonName: '+',
+      expectedOperandOne: '2',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '2',
+      expectedOperator: '+',
+    },
+    {
+      buttonName: '3',
+      expectedOperandOne: '2',
+      expectedOperandTwo: '3',
+      expectedDisplayValue: '3',
+      expectedOperator: '+',
+    },
+    {
+      buttonName: '+',
+      expectedOperandOne: '5',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '5',
+      expectedOperator: '+',
+    },
+    {
+      buttonName: '4',
+      expectedOperandOne: '5',
+      expectedOperandTwo: '4',
+      expectedDisplayValue: '4',
+      expectedOperator: '+',
+    },
+    {
+      buttonName: '/',
+      expectedOperandOne: '9',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '9',
+      expectedOperator: '/',
+    },
+    {
+      buttonName: '-',
+      expectedOperandOne: '9',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '9',
+      expectedOperator: '-',
+    },
+    {
+      buttonName: '5',
+      expectedOperandOne: '9',
+      expectedOperandTwo: '5',
+      expectedDisplayValue: '5',
+      expectedOperator: '-',
+    },
+    {
+      buttonName: '*',
+      expectedOperandOne: '4',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '4',
+      expectedOperator: '*',
+    },
+    {
+      buttonName: '2',
+      expectedOperandOne: '4',
+      expectedOperandTwo: '2',
+      expectedDisplayValue: '2',
+      expectedOperator: '*',
+    },
+
+    {
+      buttonName: '=',
+      expectedOperandOne: '8',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '8',
+      expectedOperator: null,
+    },
+  ];
+
+  let calcData = { num1: null, num2: null, displayValue: null, operator: null };
+
+  testCases.forEach(
+    ({
+      buttonName,
+      expectedOperandOne,
+      expectedOperandTwo,
+      expectedDisplayValue,
+      expectedOperator,
+    }) => {
+      it(`returns an object with 'input' ${buttonName}`, () => {
+        calcData = calculate(buttonName, calcData);
+        expect(calcData).toHaveProperty('num1', expectedOperandOne);
+        expect(calcData).toHaveProperty('num2', expectedOperandTwo);
+        expect(calcData).toHaveProperty('displayValue', expectedDisplayValue);
+        expect(calcData).toHaveProperty('operator', expectedOperator);
+      });
+    },
+  );
 });

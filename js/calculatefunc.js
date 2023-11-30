@@ -10,7 +10,7 @@ const calculate = (input, calcObject) => {
     if (num1 === null) {
       const newNum1 = input;
       return {
-        num1: newNum1,
+        num1: newNum1.toString(),
         num2,
         displayValue: newNum1,
         operator,
@@ -19,7 +19,7 @@ const calculate = (input, calcObject) => {
     if (operator !== null) {
       const newNum2 = num2 === null ? input : num2 + input;
       return {
-        num1,
+        num1: num1.toString(),
         num2: newNum2,
         displayValue: newNum2,
         operator,
@@ -29,7 +29,7 @@ const calculate = (input, calcObject) => {
 
   if (['+', '-', '*', '/'].includes(input)) {
     if (num1 !== null && num2 !== null && operator !== null) {
-      num1 = operate(operator, parseFloat(num1), parseFloat(num2));
+      num1 = operate(operator, parseFloat(num1), parseFloat(num2)).toString();
       num2 = null;
     } else if (num1 !== null && num2 == null && operator !== null) {
       num1 = parseFloat(num1).toString();
@@ -38,7 +38,7 @@ const calculate = (input, calcObject) => {
       num1 = parseFloat(num2).toString();
       num2 = null;
     } else {
-      num1 = displayValue !== null ? parseFloat(displayValue) : null;
+      num1 = displayValue !== null ? parseFloat(displayValue).toString() : null;
     }
 
     operator = input;
@@ -51,9 +51,9 @@ const calculate = (input, calcObject) => {
     if (num1 !== null && num2 !== null && operator !== null) {
       const result = operate(operator, parseFloat(num1), parseFloat(num2));
       return {
-        num1: result,
+        num1: result.toString(),
         num2: null,
-        displayValue: result,
+        displayValue: result.toString(),
         operator: null,
       };
     }
