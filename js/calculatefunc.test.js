@@ -232,3 +232,162 @@ describe('when series of input is calculated', () => {
     },
   );
 });
+
+describe('when series of input is calculated with del button', () => {
+  // 32(7, DEL)93 + 12(5, DEL)89 - 1000 = 3582
+  const testCases = [
+    {
+      buttonName: '3',
+      expectedOperandOne: '3',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '3',
+      expectedOperator: null,
+    },
+    {
+      buttonName: '2',
+      expectedOperandOne: '32',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '32',
+      expectedOperator: null,
+    },
+    {
+      buttonName: '7',
+      expectedOperandOne: '327',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '327',
+      expectedOperator: null,
+    },
+    {
+      buttonName: 'DEL',
+      expectedOperandOne: '32',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '32',
+      expectedOperator: null,
+    },
+    {
+      buttonName: '9',
+      expectedOperandOne: '329',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '329',
+      expectedOperator: null,
+    },
+    {
+      buttonName: '3',
+      expectedOperandOne: '3293',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '3293',
+      expectedOperator: null,
+    },
+    {
+      buttonName: '+',
+      expectedOperandOne: '3293',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '3293',
+      expectedOperator: '+',
+    },
+    {
+      buttonName: '1',
+      expectedOperandOne: '3293',
+      expectedOperandTwo: '1',
+      expectedDisplayValue: '1',
+      expectedOperator: '+',
+    },
+    {
+      buttonName: '2',
+      expectedOperandOne: '3293',
+      expectedOperandTwo: '12',
+      expectedDisplayValue: '12',
+      expectedOperator: '+',
+    },
+    {
+      buttonName: '5',
+      expectedOperandOne: '3293',
+      expectedOperandTwo: '125',
+      expectedDisplayValue: '125',
+      expectedOperator: '+',
+    },
+    {
+      buttonName: 'DEL',
+      expectedOperandOne: '3293',
+      expectedOperandTwo: '12',
+      expectedDisplayValue: '12',
+      expectedOperator: '+',
+    },
+    {
+      buttonName: '8',
+      expectedOperandOne: '3293',
+      expectedOperandTwo: '128',
+      expectedDisplayValue: '128',
+      expectedOperator: '+',
+    },
+    {
+      buttonName: '9',
+      expectedOperandOne: '3293',
+      expectedOperandTwo: '1289',
+      expectedDisplayValue: '1289',
+      expectedOperator: '+',
+    },
+    {
+      buttonName: '-',
+      expectedOperandOne: '4582',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '4582',
+      expectedOperator: '-',
+    },
+    {
+      buttonName: '1',
+      expectedOperandOne: '4582',
+      expectedOperandTwo: '1',
+      expectedDisplayValue: '1',
+      expectedOperator: '-',
+    },
+    {
+      buttonName: '0',
+      expectedOperandOne: '4582',
+      expectedOperandTwo: '10',
+      expectedDisplayValue: '10',
+      expectedOperator: '-',
+    },
+    {
+      buttonName: '0',
+      expectedOperandOne: '4582',
+      expectedOperandTwo: '100',
+      expectedDisplayValue: '100',
+      expectedOperator: '-',
+    },
+    {
+      buttonName: '0',
+      expectedOperandOne: '4582',
+      expectedOperandTwo: '1000',
+      expectedDisplayValue: '1000',
+      expectedOperator: '-',
+    },
+    {
+      buttonName: '=',
+      expectedOperandOne: '3582',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '3582',
+      expectedOperator: null,
+    },
+  ];
+
+  let calcData = { num1: null, num2: null, displayValue: null, operator: null };
+
+  testCases.forEach(
+    ({
+      buttonName,
+      expectedOperandOne,
+      expectedOperandTwo,
+      expectedDisplayValue,
+      expectedOperator,
+    }) => {
+      it(`returns an object with 'input' ${buttonName}`, () => {
+        calcData = calculate(buttonName, calcData);
+        expect(calcData).toHaveProperty('num1', expectedOperandOne);
+        expect(calcData).toHaveProperty('num2', expectedOperandTwo);
+        expect(calcData).toHaveProperty('displayValue', expectedDisplayValue);
+        expect(calcData).toHaveProperty('operator', expectedOperator);
+      });
+    },
+  );
+});

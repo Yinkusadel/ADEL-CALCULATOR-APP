@@ -6,6 +6,27 @@ const calculate = (input, calcObject) => {
     return { num1: null, num2: null, displayValue: null, operator: null };
   }
 
+  if (input === 'DEL') {
+    if (operator === null && num2 === null) {
+      const deleteNum1 = num1 === null ? null : num1.slice(0, -1);
+      return {
+        num1: deleteNum1,
+        num2,
+        displayValue: deleteNum1,
+        operator,
+      };
+    }
+    if (operator !== null && num1 !== null) {
+      const deleteNum2 = num2 === null ? null : num2.slice(0, -1);
+      return {
+        num1,
+        num2: deleteNum2,
+        displayValue: deleteNum2,
+        operator,
+      };
+    }
+  }
+
   if (/[0-9]/.test(input)) {
     if (num1 === null) {
       const newNum1 = input;
@@ -22,6 +43,25 @@ const calculate = (input, calcObject) => {
         num1: num1.toString(),
         num2: newNum2,
         displayValue: newNum2,
+        operator,
+      };
+    }
+    if (operator === null && num2 === null) {
+      const concatenatedNum1 = num1 === null ? input : `${num1}${input}`;
+      return {
+        num1: concatenatedNum1,
+        num2,
+        displayValue: concatenatedNum1,
+        operator,
+      };
+    }
+    if (operator !== null && num1 !== null) {
+      const concatenatedNum2 = num2 === null ? input : `${num2}${input}`;
+      return {
+        num1,
+        num2,
+        concatenatedNum2,
+        displayValue: concatenatedNum2,
         operator,
       };
     }
