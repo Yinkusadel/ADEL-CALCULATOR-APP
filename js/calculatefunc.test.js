@@ -391,3 +391,70 @@ describe('when series of input is calculated with del button', () => {
     },
   );
 });
+
+describe('when dividing by zero', () => {
+  const testCases = [
+    {
+      buttonName: '0',
+      expectedOperandOne: '0',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '0',
+      expectedOperator: null,
+    },
+    {
+      buttonName: '/',
+      expectedOperandOne: '0',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '0',
+      expectedOperator: '/',
+    },
+    {
+      buttonName: '0',
+      expectedOperandOne: '0',
+      expectedOperandTwo: '0',
+      expectedDisplayValue: '0',
+      expectedOperator: '/',
+    },
+    {
+      buttonName: '+',
+      expectedOperandOne: 'MATH ERR',
+      expectedOperandTwo: null,
+      expectedDisplayValue: 'MATH ERR',
+      expectedOperator: '+',
+    },
+    {
+      buttonName: '2',
+      expectedOperandOne: 'MATH ERR',
+      expectedOperandTwo: '2',
+      expectedDisplayValue: '2',
+      expectedOperator: '+',
+    },
+    {
+      buttonName: '=',
+      expectedOperandOne: 'NOT A NUMBER',
+      expectedOperandTwo: null,
+      expectedDisplayValue: 'NOT A NUMBER',
+      expectedOperator: null,
+    },
+  ];
+
+  let calcData = { num1: null, num2: null, displayValue: null, operator: null };
+
+  testCases.forEach(
+    ({
+      buttonName,
+      expectedOperandOne,
+      expectedOperandTwo,
+      expectedDisplayValue,
+      expectedOperator,
+    }) => {
+      it(`returns an object with 'input' ${buttonName}`, () => {
+        calcData = calculate(buttonName, calcData);
+        expect(calcData).toHaveProperty('num1', expectedOperandOne);
+        expect(calcData).toHaveProperty('num2', expectedOperandTwo);
+        expect(calcData).toHaveProperty('displayValue', expectedDisplayValue);
+        expect(calcData).toHaveProperty('operator', expectedOperator);
+      });
+    },
+  );
+});

@@ -1,5 +1,8 @@
-const operate = (operator, num1, num2) => {
-  if (typeof num1 !== 'number' || typeof num2 !== 'number') {
+const operate = (operator, operandOne, operandTwo) => {
+  const num1 = parseFloat(operandOne);
+  const num2 = parseFloat(operandTwo);
+
+  if (Number.isNaN(num1) || Number.isNaN(num2)) {
     return 'NOT A NUMBER';
   }
   if (Math.abs(num1) >= 1e14 || Math.abs(num2) >= 1e14) {
