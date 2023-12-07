@@ -12,7 +12,7 @@ describe("when 'input' is 'reset'", () => {
     const calculation = calculate(input, data);
     expect(calculation).toHaveProperty('num1', null);
     expect(calculation).toHaveProperty('num2', null);
-    expect(calculation).toHaveProperty('displayValue', null);
+    expect(calculation).toHaveProperty('displayValue', '');
     expect(calculation).toHaveProperty('operator', null);
   });
 });
