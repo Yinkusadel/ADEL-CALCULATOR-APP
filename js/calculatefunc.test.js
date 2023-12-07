@@ -12,7 +12,7 @@ describe("when 'input' is 'reset'", () => {
     const calculation = calculate(input, data);
     expect(calculation).toHaveProperty('num1', null);
     expect(calculation).toHaveProperty('num2', null);
-    expect(calculation).toHaveProperty('displayValue', '');
+    expect(calculation).toHaveProperty('displayValue', null);
     expect(calculation).toHaveProperty('operator', null);
   });
 });
@@ -133,6 +133,13 @@ describe('when series of input is calculated', () => {
   // 2 + 3 + 4 / - 5 * 2 = 8
   const testCases = [
     {
+      buttonName: 'DEL',
+      expectedOperandOne: null,
+      expectedOperandTwo: null,
+      expectedDisplayValue: null,
+      expectedOperator: null,
+    },
+    {
       buttonName: '2',
       expectedOperandOne: '2',
       expectedOperandTwo: null,
@@ -234,7 +241,7 @@ describe('when series of input is calculated', () => {
 });
 
 describe('when series of input is calculated with del button', () => {
-  // 32(7, DEL)93 + 12(5, DEL)89 - 1000 = 3582
+  // 32(7, DEL)93 + (DEL) 12(5, DEL)89 - 1000 = 3582
   const testCases = [
     {
       buttonName: '3',
@@ -280,6 +287,13 @@ describe('when series of input is calculated with del button', () => {
     },
     {
       buttonName: '+',
+      expectedOperandOne: '3293',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '3293',
+      expectedOperator: '+',
+    },
+    {
+      buttonName: 'DEL',
       expectedOperandOne: '3293',
       expectedOperandTwo: null,
       expectedDisplayValue: '3293',

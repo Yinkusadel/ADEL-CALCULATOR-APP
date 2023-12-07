@@ -2,10 +2,12 @@ const operate = require('./operate');
 
 const calculate = (input, calcObject) => {
   let { num1, num2, displayValue, operator } = calcObject;
+  let deleteNum2;
+  let concatenatedNum1;
 
   switch (input) {
     case 'reset':
-      return { num1: null, num2: null, displayValue: '', operator: null };
+      return { num1: null, num2: null, displayValue: null, operator: null };
 
     case 'DEL':
       if (operator === null && num2 === null) {
@@ -17,16 +19,13 @@ const calculate = (input, calcObject) => {
           operator,
         };
       }
-      if (operator !== null && num1 !== null) {
-        const deleteNum2 = num2 === null ? null : num2.slice(0, -1);
-        return {
-          num1,
-          num2: deleteNum2,
-          displayValue: deleteNum2,
-          operator,
-        };
-      }
-      break;
+      deleteNum2 = num2 === null ? null : num2.slice(0, -1);
+      return {
+        num1,
+        num2: deleteNum2,
+        displayValue: deleteNum2 || displayValue,
+        operator,
+      };
 
     case '=':
       if (num1 !== null && num2 !== null && operator !== null) {
@@ -50,17 +49,8 @@ const calculate = (input, calcObject) => {
     case '7':
     case '8':
     case '9':
-      if (num1 === null) {
-        const newNum1 = input;
-        return {
-          num1: newNum1.toString(),
-          num2,
-          displayValue: newNum1,
-          operator,
-        };
-      }
       if (operator !== null) {
-        const newNum2 = num2 === null ? input : num2 + input;
+        const newNum2 = num2 === null ? input : `${num2}${input}`;
         return {
           num1: num1.toString(),
           num2: newNum2,
@@ -68,16 +58,13 @@ const calculate = (input, calcObject) => {
           operator,
         };
       }
-      if (operator === null && num2 === null) {
-        const concatenatedNum1 = num1 === null ? input : `${num1}${input}`;
-        return {
-          num1: concatenatedNum1,
-          num2,
-          displayValue: concatenatedNum1,
-          operator,
-        };
-      }
-      break;
+      concatenatedNum1 = num1 === null ? input : `${num1}${input}`;
+      return {
+        num1: concatenatedNum1,
+        num2,
+        displayValue: concatenatedNum1,
+        operator,
+      };
 
     case '+':
     case '-':
@@ -104,7 +91,6 @@ const calculate = (input, calcObject) => {
     default:
       return calcObject;
   }
-  return calcObject;
 };
 
 module.exports = calculate;
