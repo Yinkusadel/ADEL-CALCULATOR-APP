@@ -37,4 +37,4 @@ const operate = (operator, operandOne, operandTwo) => {
   return parseFloat(result.toPrecision(12));
 };
 
-module.exports = operate;
+export default operate;

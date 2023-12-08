@@ -9,6 +9,7 @@
   "devDependencies": {
     "axe-core": "^4.8.2",
     "axe-puppeteer": "^1.1.1",
+    "cross-env": "^7.0.3",
     "eslint": "^8.52.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.0.0",
@@ -27,8 +28,8 @@
     "stylelint-prettier": "^4.0.2"
   },
   "scripts": {
-    "format": "npx prettier  --write \"**/*.{html,json,md,yaml,yml}\"",
-    "format:check": "npx prettier  --check \"**/*.{html,json,md,yaml,yml}\"",
+    "format": "npx prettier  --write \"**/*.{html,json,md,yaml,yml,js}\"",
+    "format:check": "npx prettier  --check \"**/*.{html,json,md,yaml,yml,js}\"",
     "lint": "npx stylelint \"**/*.css\" --fix && npx eslint . --fix",
     "lint:check": "npx stylelint \"**/*.css\" && npx eslint .",
     "stylelint": "npx stylelint \"**/*.css\" --fix",
@@ -37,6 +38,7 @@
     "eslint:check": "npx eslint .",
     "axe": "node axe-check.js",
     "lint:html": "htmlhint .",
-    "test": "jest"
-  }
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
+  },
+  "type": "module"
 }

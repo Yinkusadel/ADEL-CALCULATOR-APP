@@ -1,4 +1,4 @@
-const operate = require('./operate');
+import operate from './operate.js';
 
 const calculate = (input, calcObject) => {
   let { num1, num2, displayValue, operator } = calcObject;
@@ -93,4 +93,4 @@ const calculate = (input, calcObject) => {
   }
 };
 
-module.exports = calculate;
+export default calculate;
