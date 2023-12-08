@@ -1,4 +1,4 @@
-import calculate from './calculatefunc.js';
+import calculate from './calculate.js';
 
 let data;
 beforeEach(() => {
