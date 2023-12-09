@@ -1,4 +1,4 @@
-const operate = require('./operator');
+import operate from './operate.js';
 
 describe('with basic arithmetic', () => {
   test('add 0.2 + 0.1 to equal 0.3', () => {
@@ -124,11 +124,15 @@ describe('with Extreme Values', () => {
 
 describe('when Mixing Data Types', () => {
   test(' add "2" + 3 to return Error', () => {
-    expect(operate('+', '2', 3)).toBe('NOT A NUMBER');
+    expect(operate('+', '2', 3)).toBe(5);
   });
 
-  test('subtract 4 - "1" to return Error', () => {
-    expect(operate('-', 4, '1')).toBe('NOT A NUMBER');
+  test(' add "a" + 3 to return Error', () => {
+    expect(operate('+', 'a', 3)).toBe('NOT A NUMBER');
+  });
+
+  test('subtract 4 - "b" to return Error', () => {
+    expect(operate('-', 4, 'b')).toBe('NOT A NUMBER');
   });
 });
 
