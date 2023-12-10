@@ -472,3 +472,119 @@ describe('when dividing by zero', () => {
     },
   );
 });
+
+describe('when dividing by zero', () => {
+  const testCases = [
+    {
+      buttonName: '1',
+      expectedOperandOne: '1',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '1',
+      expectedOperator: null,
+    },
+    {
+      buttonName: '.',
+      expectedOperandOne: '1.',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '1.',
+      expectedOperator: null,
+    },
+    {
+      buttonName: '2',
+      expectedOperandOne: '1.2',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '1.2',
+      expectedOperator: null,
+    },
+    {
+      buttonName: '.',
+      expectedOperandOne: '1.2',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '1.2',
+      expectedOperator: null,
+    },
+    {
+      buttonName: '3',
+      expectedOperandOne: '1.23',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '1.23',
+      expectedOperator: null,
+    },
+    {
+      buttonName: '.',
+      expectedOperandOne: '1.23',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '1.23',
+      expectedOperator: null,
+    },
+    {
+      buttonName: '+',
+      expectedOperandOne: '1.23',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '1.23',
+      expectedOperator: `+`,
+    },
+    {
+      buttonName: '.',
+      expectedOperandOne: '1.23',
+      expectedOperandTwo: `0.`,
+      expectedDisplayValue: '0.',
+      expectedOperator: `+`,
+    },
+    {
+      buttonName: '4',
+      expectedOperandOne: '1.23',
+      expectedOperandTwo: `0.4`,
+      expectedDisplayValue: `0.4`,
+      expectedOperator: `+`,
+    },
+    {
+      buttonName: '.',
+      expectedOperandOne: '1.23',
+      expectedOperandTwo: `0.4`,
+      expectedDisplayValue: `0.4`,
+      expectedOperator: `+`,
+    },
+    {
+      buttonName: '5',
+      expectedOperandOne: '1.23',
+      expectedOperandTwo: `0.45`,
+      expectedDisplayValue: `0.45`,
+      expectedOperator: `+`,
+    },
+    {
+      buttonName: '.',
+      expectedOperandOne: '1.23',
+      expectedOperandTwo: `0.45`,
+      expectedDisplayValue: `0.45`,
+      expectedOperator: `+`,
+    },
+    {
+      buttonName: '=',
+      expectedOperandOne: '1.68',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '1.68',
+      expectedOperator: null,
+    },
+  ];
+
+  let calcData = { num1: null, num2: null, displayValue: null, operator: null };
+
+  testCases.forEach(
+    ({
+      buttonName,
+      expectedOperandOne,
+      expectedOperandTwo,
+      expectedDisplayValue,
+      expectedOperator,
+    }) => {
+      it(`returns an object with 'input' ${buttonName}`, () => {
+        calcData = calculate(buttonName, calcData);
+        expect(calcData).toHaveProperty('num1', expectedOperandOne);
+        expect(calcData).toHaveProperty('num2', expectedOperandTwo);
+        expect(calcData).toHaveProperty('displayValue', expectedDisplayValue);
+        expect(calcData).toHaveProperty('operator', expectedOperator);
+      });
+    },
+  );
+});
