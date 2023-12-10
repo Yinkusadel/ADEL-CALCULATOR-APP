@@ -6,6 +6,7 @@ const calculate = (input, calcObject) => {
   let concatenatedNum1;
   let currentNum;
   let hasDecimal;
+  let updatedNum;
 
   switch (input) {
     case 'reset':
@@ -75,20 +76,21 @@ const calculate = (input, calcObject) => {
       return calcObject;
 
     case '.':
-      currentNum = operator !== null ? num2 : num1;
+      currentNum = operator === null ? num1 : num2;
       hasDecimal = currentNum !== null && currentNum.includes('.');
 
-      if (!hasDecimal) {
-        const updatedNum = currentNum === null ? '0.' : `${currentNum}.`;
-        return {
-          num1: operator !== null ? num1 : updatedNum,
-          num2: operator !== null ? updatedNum : num2,
-          displayValue: updatedNum,
-          operator,
-        };
+      if (hasDecimal) {
+        return calcObject;
       }
 
-      return calcObject;
+      updatedNum = currentNum === null ? '0.' : `${currentNum}.`;
+
+      return {
+        num1: operator === null ? updatedNum : num1,
+        num2: operator === null ? num2 : updatedNum,
+        displayValue: updatedNum,
+        operator,
+      };
 
     case '+':
     case '-':
