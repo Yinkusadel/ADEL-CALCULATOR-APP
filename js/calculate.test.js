@@ -473,7 +473,7 @@ describe('when dividing by zero', () => {
   );
 });
 
-describe('when dividing by zero', () => {
+describe('when handling several inputs with decimals', () => {
   const testCases = [
     {
       buttonName: '1',
@@ -565,6 +565,126 @@ describe('when dividing by zero', () => {
       expectedOperandTwo: null,
       expectedDisplayValue: '1.68',
       expectedOperator: null,
+    },
+  ];
+
+  let calcData = { num1: null, num2: null, displayValue: null, operator: null };
+
+  testCases.forEach(
+    ({
+      buttonName,
+      expectedOperandOne,
+      expectedOperandTwo,
+      expectedDisplayValue,
+      expectedOperator,
+    }) => {
+      it(`returns an object with 'input' ${buttonName}`, () => {
+        calcData = calculate(buttonName, calcData);
+        expect(calcData).toHaveProperty('num1', expectedOperandOne);
+        expect(calcData).toHaveProperty('num2', expectedOperandTwo);
+        expect(calcData).toHaveProperty('displayValue', expectedDisplayValue);
+        expect(calcData).toHaveProperty('operator', expectedOperator);
+      });
+    },
+  );
+});
+
+describe('when using an operator after any logical ERROR', () => {
+  const testCases = [
+    {
+      buttonName: '2',
+      expectedOperandOne: '2',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '2',
+      expectedOperator: null,
+    },
+    {
+      buttonName: '/',
+      expectedOperandOne: '2',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '2',
+      expectedOperator: `/`,
+    },
+    {
+      buttonName: '0',
+      expectedOperandOne: '2',
+      expectedOperandTwo: `0`,
+      expectedDisplayValue: '0',
+      expectedOperator: `/`,
+    },
+    {
+      buttonName: '=',
+      expectedOperandOne: 'MATH ERR',
+      expectedOperandTwo: null,
+      expectedDisplayValue: 'MATH ERR',
+      expectedOperator: null,
+    },
+    {
+      buttonName: '+',
+      expectedOperandOne: 'MATH ERR',
+      expectedOperandTwo: null,
+      expectedDisplayValue: 'MATH ERR',
+      expectedOperator: `+`,
+    },
+  ];
+
+  let calcData = { num1: null, num2: null, displayValue: null, operator: null };
+
+  testCases.forEach(
+    ({
+      buttonName,
+      expectedOperandOne,
+      expectedOperandTwo,
+      expectedDisplayValue,
+      expectedOperator,
+    }) => {
+      it(`returns an object with 'input' ${buttonName}`, () => {
+        calcData = calculate(buttonName, calcData);
+        expect(calcData).toHaveProperty('num1', expectedOperandOne);
+        expect(calcData).toHaveProperty('num2', expectedOperandTwo);
+        expect(calcData).toHaveProperty('displayValue', expectedDisplayValue);
+        expect(calcData).toHaveProperty('operator', expectedOperator);
+      });
+    },
+  );
+});
+
+describe('when dividing by zero', () => {
+  const testCases = [
+    {
+      buttonName: '2',
+      expectedOperandOne: '2',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '2',
+      expectedOperator: null,
+    },
+    {
+      buttonName: '/',
+      expectedOperandOne: '2',
+      expectedOperandTwo: null,
+      expectedDisplayValue: '2',
+      expectedOperator: `/`,
+    },
+    {
+      buttonName: '0',
+      expectedOperandOne: '2',
+      expectedOperandTwo: `0`,
+      expectedDisplayValue: '0',
+      expectedOperator: `/`,
+    },
+    {
+      buttonName: '=',
+      expectedOperandOne: 'MATH ERR',
+      expectedOperandTwo: null,
+      expectedDisplayValue: 'MATH ERR',
+      expectedOperator: null,
+    },
+    {
+      buttonName: '+',
+      expectedOperandOne: 'MATH ERR',
+      expectedOperandTwo: null,
+      expectedDisplayValue: 'MATH ERR',
+      expectedOperator: `+`,
     },
   ];
 
