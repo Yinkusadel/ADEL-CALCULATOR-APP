@@ -1,6 +1,24 @@
+import calculate from './calculate.js';
+
 const startApp = () => {
-  const body = document.querySelector('body');
-  body.innerHTML = '<h2>JAVASCRIPT ENABLED</h2>';
+  const buttonContainer = document.querySelector('.calculator-btns');
+  const userInput = document.querySelector('.user-input');
+  let calcObject = {
+    num1: null,
+    num2: null,
+    displayValue: null,
+    operator: null,
+  };
+
+  buttonContainer.addEventListener('click', (event) => {
+    if (event.target.type === 'button') {
+      const clickedValue = event.target.value;
+
+      calcObject = calculate(clickedValue, calcObject);
+
+      userInput.textContent = calcObject.displayValue;
+    }
+  });
 };
 
 startApp();

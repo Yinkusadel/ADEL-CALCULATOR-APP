@@ -4,6 +4,9 @@ const calculate = (input, calcObject) => {
   let { num1, num2, displayValue, operator } = calcObject;
   let deleteNum2;
   let concatenatedNum1;
+  let currentNum;
+  let hasDecimal;
+  let updatedNum;
 
   switch (input) {
     case 'reset':
@@ -51,18 +54,41 @@ const calculate = (input, calcObject) => {
     case '9':
       if (operator !== null) {
         const newNum2 = num2 === null ? input : `${num2}${input}`;
-        return {
-          num1: num1.toString(),
-          num2: newNum2,
-          displayValue: newNum2,
-          operator,
-        };
+        if (newNum2.length <= 12) {
+          return {
+            num1: num1.toString(),
+            num2: newNum2,
+            displayValue: newNum2,
+            operator,
+          };
+        }
+      } else {
+        concatenatedNum1 = num1 === null ? input : `${num1}${input}`;
+        if (concatenatedNum1.length <= 12) {
+          return {
+            num1: concatenatedNum1,
+            num2,
+            displayValue: concatenatedNum1,
+            operator,
+          };
+        }
       }
-      concatenatedNum1 = num1 === null ? input : `${num1}${input}`;
+      return calcObject;
+
+    case '.':
+      currentNum = operator === null ? num1 : num2;
+      hasDecimal = currentNum !== null && currentNum.includes('.');
+
+      if (hasDecimal) {
+        return calcObject;
+      }
+
+      updatedNum = currentNum === null ? '0.' : `${currentNum}.`;
+
       return {
-        num1: concatenatedNum1,
-        num2,
-        displayValue: concatenatedNum1,
+        num1: operator === null ? updatedNum : num1,
+        num2: operator === null ? num2 : updatedNum,
+        displayValue: updatedNum,
         operator,
       };
 
@@ -71,16 +97,16 @@ const calculate = (input, calcObject) => {
     case '*':
     case '/':
       if (num1 !== null && num2 !== null && operator !== null) {
-        num1 = operate(operator, parseFloat(num1), parseFloat(num2)).toString();
+        num1 = operate(operator, num1, num2).toString();
         num2 = null;
       } else if (num1 !== null && num2 == null && operator !== null) {
-        num1 = parseFloat(num1).toString();
+        num1 = num1.toString();
         num2 = null;
       } else if (num1 == null && num2 !== null && operator !== null) {
-        num1 = parseFloat(num2).toString();
+        num1 = num2.toString();
         num2 = null;
       } else {
-        num1 = displayValue !== null ? parseFloat(displayValue).toString() : null;
+        num1 = displayValue !== null ? displayValue.toString() : null;
       }
 
       operator = input;
